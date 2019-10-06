@@ -2,23 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:news_app/bloc/news_listing_bloc.dart';
+import 'package:news_app/bloc/news_listing_event.dart';
 import 'package:news_app/pages/newsListing.dart';
 import 'package:news_app/services/repository.dart';
 import 'package:news_app/widgets/categoryBox.dart';
 
 class HomePage extends StatefulWidget {
   final NewsRepository repository;
+
   HomePage({this.repository});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
   NewsListingBloc _newsListingBloc;
+
   @override
   void initState() {
     super.initState();
     _newsListingBloc = NewsListingBloc(newsRepository: widget.repository);
+    _newsListingBloc.dispatch(CategorySelectedEvent(category: 'General'));
   }
 
   @override
@@ -44,6 +49,7 @@ class _HomePageState extends State<HomePage> {
     FontAwesomeIcons.chartBar,
     FontAwesomeIcons.microscope
   ];
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
