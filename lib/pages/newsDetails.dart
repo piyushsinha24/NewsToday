@@ -57,7 +57,7 @@ class _NewsDetailsState extends State<NewsDetails> {
                   padding: const EdgeInsets.all(8.0),
                   child: AutoSizeText(
                     widget.article.title,
-                    maxLines: 2,
+                    //maxLines: 2,
                     minFontSize: 22.0,
                     style: TextStyle(color: Colors.black),
                   ),),
