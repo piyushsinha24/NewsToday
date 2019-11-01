@@ -3,7 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:news_app/models/api_model.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:news_app/pages/newsFullStory.dart';
 class NewsDetails extends StatefulWidget {
   final Articles article;
   NewsDetails(this.article);
@@ -12,13 +12,7 @@ class NewsDetails extends StatefulWidget {
 }
 
 class _NewsDetailsState extends State<NewsDetails> {
-  _launchURL(String url) async {
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
-}
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +51,7 @@ class _NewsDetailsState extends State<NewsDetails> {
                   padding: const EdgeInsets.all(8.0),
                   child: AutoSizeText(
                     widget.article.title,
-                    maxLines: 2,
+                    //maxLines: 2,
                     minFontSize: 22.0,
                     style: TextStyle(color: Colors.black),
                   ),),
@@ -87,7 +81,7 @@ class _NewsDetailsState extends State<NewsDetails> {
                         Padding(
                           padding: const EdgeInsets.only(left:8.0),
                           child: AutoSizeText(
-                            widget.article.url==null?"":widget.article.source.name,
+                            "See Full Story",
                             minFontSize: 18.0,
                             style: TextStyle(color: Colors.indigo[900]),
                           ),
@@ -95,7 +89,11 @@ class _NewsDetailsState extends State<NewsDetails> {
                       ],
                     ),
                     onTap: (){
-                      _launchURL(widget.article.url);
+                      //_launchURL(widget.article.url);
+                      Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => NewsFullStory(widget.article.url)));
                     },
                   ),
                 ),
