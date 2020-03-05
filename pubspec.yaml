@@ -27,7 +27,7 @@ dependencies:
   flutter_bloc:
   font_awesome_flutter:
   auto_size_text: ^2.0.0+2
-  cached_network_image:
+  cached_network_image: 2.0.0-rc
   webview_flutter:
 
 dev_dependencies:
