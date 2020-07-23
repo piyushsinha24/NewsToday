@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 class NewsApiProvider {
 
-  String baseUrl = "https://newsapi.org/v2/top-headlines?country=in&apiKey=252ff8c937a04ce5ab16d43498ce2c3d";
+  String baseUrl = "https://newsapi.org/v2/top-headlines?country=in&apiKey=252ff8c937a04ce5ab16d43498ce2xxx";
   final successCode = 200;
 
   Future<List<Articles>> fetchHeadlines() async {
